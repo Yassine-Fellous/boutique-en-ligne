@@ -1,2 +1,2 @@
 # boutique-en-ligne
-Boutique en ligen
+Boutique en ligne
