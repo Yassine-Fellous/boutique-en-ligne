@@ -9,8 +9,8 @@ session_start();
         <p1 class="livraison-text"><strong>Livraison offerte dès 30€ d'achats !</strong></p1>
     </div>
     <ul class="navigation">
-        <li><a href="#">Shop</a></li>
-        <li><a href="deconnexion.php"><img class="logout" src="images/logout.png" alt="logo"></img></a>
+        <li><a href="#" title="Le shop, parcourez notre large gamme de produits">Shop</a></li>
+        <li><a href="deconnexion.php"><img class="logout" title="Se déconnecter" src="images/logout.png" alt="logo"></img></a>
     </ul>
 <!-- ?php endif; ?>
  ?php else : ?> Lorsque la personne est déconnectée, il verra ces 2 sections dans le header.
