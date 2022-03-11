@@ -66,6 +66,11 @@ header .navigation li a:hover
       opacity: 0;
     }
 }
+.logout
+{
+    height: 50px;
+    width: 50px;
+}
 /* Fin du header */
 /* Mise en page */
 .diapo-zone
@@ -87,6 +92,7 @@ header .navigation li a:hover
     justify-content:center;
     align-items: center;
     margin-top: 4%;
+    
 }
 @import url('https://fonts.googleapis.com/css2?family=Amatic+SC&family=Dosis:wght@200&display=swap');
 .mascotte-titre
