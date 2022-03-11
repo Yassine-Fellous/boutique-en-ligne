@@ -10,7 +10,7 @@ session_start();
     </div>
     <ul class="navigation">
         <li><a href="#">Shop</a></li>
-        <li><a href="PHP/deconnexion.php">Déconnexion</a></li>
+        <li><a href="deconnexion.php"><img class="logout" src="images/logout.png" alt="logo"></img></a>
     </ul>
 <!-- ?php endif; ?>
  ?php else : ?> Lorsque la personne est déconnectée, il verra ces 2 sections dans le header.
