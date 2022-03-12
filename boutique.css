@@ -73,6 +73,7 @@ header .navigation li a:hover
 }
 /* Fin du header */
 /* Mise en page */
+/* Page index */
 .diapo-zone
 {
     display: flex;
@@ -100,9 +101,98 @@ header .navigation li a:hover
     font-family: 'Amatic SC', cursive;
     font-size: 30px;
 }
-/* Background */
-body
+body /* Background toutes pages */
 {
     background-color: #358028;
     background-image: url("https://www.transparenttextures.com/patterns/xv.png");
+}
+/* Page erreur 404 */
+.logo-zone
+{
+    display: flex;
+    justify-content: center;
+}
+@import url('https://fonts.googleapis.com/css2?family=Signika:wght@600&display=swap');
+.sorry
+{
+    font-family: 'Signika', sans-serif;
+    color: white;
+    font-size: 50px;
+}
+.sorry-message-zone
+{
+    display: flex;
+    justify-content: center;
+    margin-top: 1%;
+}
+.mascotte-rip-zone
+{
+    display: flex;
+    justify-content: center;
+}
+.mascotte-rip
+{
+    height: 20%;
+    width: 20%;
+}
+.page-unavailable
+{
+    font-family: 'Signika', sans-serif;
+    color: white;
+    font-size: 30px;
+}
+.button-back-404-zone
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.button-back-404
+{
+    align-items: center;
+    background-image: linear-gradient(144deg,#AF40FF, #49bd2c 50%,#00DDEB);
+    border: 0;
+    border-radius: 8px;
+    box-shadow: rgba(65, 252, 90, 0.2) 0 15px 30px -5px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    display: flex;
+    font-family: Phantomsans, sans-serif;
+    font-size: 20px;
+    justify-content: center;
+    line-height: 1em;
+    max-width: 100%;
+    min-width: 140px;
+    padding: 3px;
+    text-decoration: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    white-space: nowrap;
+    cursor: pointer;
+}  
+.button-back-404:active, .button-back-404:hover 
+{
+    outline: 0;
+}  
+.button-back-404 span
+{
+    background-color: rgb(6, 45, 5);
+    padding: 16px 24px;
+    border-radius: 6px;
+    width: 100%;
+    height: 100%;
+    transition: 300ms;
+}  
+.button-back-404:hover span
+{
+    background: none;
+} 
+@media (min-width: 768px)
+{
+    .button-back-404
+    {
+        font-size: 24px;
+        min-width: 196px;
+    }
 }
