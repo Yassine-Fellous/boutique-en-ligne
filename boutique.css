@@ -221,7 +221,6 @@
     justify-content:center;
     align-items: center;
     margin-top: 4%;
-    
 }
 @import url('https://fonts.googleapis.com/css2?family=Amatic+SC&family=Dosis:wght@200&display=swap');
 .mascotte-titre
@@ -252,7 +251,7 @@ body /* Background toutes pages */
         flex-direction: column;
     }
 }
-/* Page erreur 404 */
+/* Page erreur 404 */ /* Version ordinateur */
 .logo-zone
 {
     display: flex;
@@ -333,13 +332,33 @@ body /* Background toutes pages */
 .button-back-404:hover span
 {
     background: none;
-} 
-@media (min-width: 768px)
+}
+/* Version mobile */
+@media all and (max-width: 650px)
 {
     .button-back-404
     {
+        margin-top: 5%;
         font-size: 24px;
         min-width: 196px;
+    }
+    .logo-404
+    {
+        height: 50%;
+        width: 50%;
+    }
+    .sorry-message-zone
+    {
+        margin-top: 5%;
+    }
+    .mascotte-rip
+    {
+        height: 40%;
+        width: 40%;
+    }
+    .page-unavailable
+    {
+        text-align: center;
     }
 }
 /* Fin de la page erreur 404 */
