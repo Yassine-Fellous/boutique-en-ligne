@@ -9,3 +9,4 @@ catch(PDOException $messageErreur)
 {
     echo "ERREUR :" . " ". $messageErreur->getMessage();
 }
+?>
