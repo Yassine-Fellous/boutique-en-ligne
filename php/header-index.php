@@ -8,6 +8,10 @@ session_start();
     <div class="livraison-text-zone">
         <p1 class="livraison-text"><strong>Livraison offerte dès 30€ d'achats !</strong></p1>
     </div>
+    <div class="barre-de-recherche">
+        <input type="text" placeholder="Recherchez un produit...">
+        <div class="search"></div>
+    </div>
     <ul class="navigation">
         <li><a href="#" title="Le shop, parcourez notre large gamme de produits">Shop</a></li>
         <li><a href="deconnexion.php"><img class="logout" title="Se déconnecter" src="images/logout.png" alt="logo"></img></a>
