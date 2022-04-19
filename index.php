@@ -9,7 +9,6 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Amatic+SC&family=Dosis:wght@200&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="boutique.css">
     <title>Instagreen Shop</title>
@@ -33,9 +32,6 @@
     </header>
     <main>
         <article>
-            <div class="livraison-text-zone-mobile">
-                <p1 class="livraison-text"><strong>Livraison offerte dès 30€ d'achats !</strong></p1>
-            </div>
             <div class="diapo-zone">
                 <img class="diapo" src="images/diapo.gif">
             </div>
