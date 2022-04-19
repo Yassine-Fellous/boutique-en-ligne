@@ -233,6 +233,131 @@ body /* Background toutes pages */
     background-color: #358028;
     background-image: url("https://www.transparenttextures.com/patterns/xv.png");
 }
+/* Barre de recherche */
+.barre-de-recherche
+{
+    position: absolute;
+    margin: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 300px;
+    height: 100px;
+}
+.barre-de-recherche .search
+{
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    width: 80px;
+    height: 80px;
+    background: #5cbe4d;
+    border-radius: 50%;
+    transition: all 0.5s;
+    z-index: 4;
+    box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.4);
+}
+.barre-de-recherche .search:hover
+{
+    cursor: pointer;
+}
+.barre-de-recherche .search:before
+{
+    content: "";
+    position: absolute;
+    margin: auto;
+    top: 22px;
+    right: 0;
+    bottom: 0;
+    left: 22px;
+    width: 12px;
+    height: 2px;
+    background: #fff;
+    transform: rotate(45deg);
+    transition: all 0.2;
+}
+.barre-de-recherche .search:after
+{
+    content: "";
+    position: absolute;
+    margin: auto;
+    top: -5px;
+    right: 0;
+    bottom: 0;
+    left: -5px;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    transition: all 0.2;
+}
+.barre-de-recherche input
+{
+    font-family: 'Poppins', sans-serif;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 50px;
+    outline: none;
+    border: none;
+    background: #5cbe4d;
+    padding: 0 80px 0 20px;
+    border-radius: 30px;
+    box-shadow: 0 0 25px 0 #9cf38e, 0 20px 25px 0 rgba(0, 0, 0, 0.2);
+    transition: all 0.5s;
+    opacity: 0;
+    z-index: 5;
+    font-weight: bolder;
+    letter-spacing: 0.1em;
+    color: #fff;
+}
+.barre-de-recherche input:hover
+{
+    cursor: pointer;
+}
+.barre-de-recherche input:focus
+{
+    width: 300px;
+    opacity: 1;
+    cursor: text;
+}
+.barre-de-recherche input:focus ~ .search
+{
+    right: -250px;
+    background: #151515;
+    z-index: 6;
+}
+.barre-de-recherche input:focus ~ .search:before
+{
+    top: 0;
+    left: 0;
+    width: 25px;
+}
+.barre-de-recherche input:focus ~ .search:after
+{
+    top: 0;
+    left: 0;
+    width: 25px;
+    height: 2px;
+    border: none;
+    background: #fff;
+    border-radius: 0%;
+    transform: rotate(-45deg);
+}
+.barre-de-recherche input::placeholder
+{
+    color: #fff;
+    opacity: 0.5;
+    font-weight: bolder;
+}
 /* Version mobile */
 @media all and (max-width: 650px)
 {
