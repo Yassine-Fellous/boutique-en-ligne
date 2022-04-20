@@ -31,25 +31,10 @@
 </head>
 
 <body>
-    <header class="header-pc">
-        <?php
-        include("./header-index.php");
-        ?>
-    </header>
-    <header class="header-mobile">
-        <?php
-        include("./header-index-mobile.php");
-        ?>
-    </header>
     <!-- product section -->
     <link rel="stylesheet" href="produit.css">
     <section class="product_section layout_padding2-top layout_padding-bottom">
         <div class="container">
-            <div class="heading_container heading_center">
-                <h2>
-                    Our Weed
-                </h2>
-            </div>
             <div class="row">
                 <div class="col-sm-6 col-lg-4">
                     <div class="box">
