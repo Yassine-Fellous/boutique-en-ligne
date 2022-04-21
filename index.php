@@ -10,7 +10,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Amatic+SC&family=Dosis:wght@200&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="boutique.css">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
+    <link rel="stylesheet" type="text/css" href="css/boutique.css"/>
+    <link rel="stylesheet" type="text/css" href="css/responsive.css"/>
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
     <title>Instagreen Shop</title>
 </head>
 <body>
@@ -38,6 +42,14 @@
             <div class="mascotte-zone">
                 <img class="mascotte" src="images/mascotte.png">
                 <p2 class="mascotte-titre"><strong>La marque qui prend de la graine</strong></p2>
+            </div>
+            <div class="produits">
+                <div class="produits-text-zone">
+                    <p1 class="produits-text">Nos produits</p1>
+                </div>
+                <?php
+                include ("php/produit.php");
+                ?>
             </div>
         </article>
     </main>
