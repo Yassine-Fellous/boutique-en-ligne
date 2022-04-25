@@ -89,12 +89,12 @@ class Modulco{
                 
                 else{
                     $_SESSION['fail']= '<font color="red">Login inexsistant ou Password incorrect !</font>';
-                    header('Location:../html/connexion.php');
+                    //header('Location:../html/connexion.php');
                 }
             }
             else{
                 $_SESSION['fail'] = '<font color="red"> Il manque des champs !</font>';
-                header('Location:../html/connexion.php');
+                //header('Location:../html/connexion.php');
             }
     }
 
