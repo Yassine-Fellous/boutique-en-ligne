@@ -471,3 +471,95 @@ body /* Background toutes pages */
     font-size: 45px;
     color: white;
 }
+/* Page de connexion */
+.logo-co
+{
+    height: 10%;
+    width: 10%;
+}
+@import url('https://fonts.googleapis.com/css2?family=Shippori+Antique+B1&display=swap');
+.connexion-titre-zone
+{
+    margin-top: 2%;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+.connexion-titre
+{
+    font-family: 'Shippori Antique B1', sans-serif;
+    font-size: 35px;
+    color: white;
+}
+.connexion
+{
+    background-color: #c2fbd7;
+    border-radius: 100px;
+    box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset,rgba(44, 187, 99, .15) 0 1px 2px,rgba(44, 187, 99, .15) 0 2px 4px,rgba(44, 187, 99, .15) 0 4px 8px,rgba(44, 187, 99, .15) 0 8px 16px,rgba(44, 187, 99, .15) 0 16px 32px;
+    color: green;
+    cursor: pointer;
+    display: inline-block;
+    font-family: CerebriSans-Regular,-apple-system,system-ui,Roboto,sans-serif;
+    padding: 7px 20px;
+    text-align: center;
+    transition: all 250ms;
+    border: 0;
+    font-size: 16px;
+    touch-action: manipulation;
+}
+.connexion:hover
+{
+    box-shadow: rgba(44,187,99,.35) 0 -25px 18px -14px inset,rgba(44,187,99,.25) 0 1px 2px,rgba(44,187,99,.25) 0 2px 4px,rgba(44,187,99,.25) 0 4px 8px,rgba(44,187,99,.25) 0 8px 16px,rgba(44,187,99,.25) 0 16px 32px;
+    transform: scale(1.05) rotate(-1deg);
+}
+.flex
+{
+    margin-top: 5%;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+.module-co-zone
+{
+    display: flex;
+    flex-wrap: wrap;
+    align-items:flex-start;
+    justify-content: center;
+    width: 30%;
+}
+.formulaire
+{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    border: 1px solid rgb(0, 255, 34);
+}
+label, input
+{
+    display: block;
+}
+label
+{
+    margin-bottom: 10px;
+}
+.formulaire input[type=password], .formulaire input[type=text], .formulaire select
+{
+    border-radius: 5px;
+	-webkit-border-radius: 13px;
+	-moz-border-radius: 13px;
+	border: 1px solid #daffd5;
+	outline: none;
+	color: #5eee4bf8;
+	padding: 17px 38px 17px 10px;
+	box-shadow: inset 1px 1px 4px #7ff16f;
+	-moz-box-shadow: inset 1px 1px 4px #94fc86;
+	-webkit-box-shadow: inset 1px 1px 4px #75f365;
+	background: #effff2;
+	width:100%;
+}
+.recuperation
+{
+    font-family: 'Shippori Antique B1', sans-serif;
+    color: white;
+    margin-top: 11%;
+}
