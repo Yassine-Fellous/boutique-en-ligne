@@ -10,9 +10,10 @@
 
     <ul class="menu__box">
       <li><a class="menu__item" href="#">Panier</a></li>
-      <li><a class="menu__item" href="#">Produits</a></li>
-      <li><a class="menu__item" href="#">Connexion</a></li>
+      <li><a class="menu__item" href="produit.php">Produits</a></li>
+      <li><a class="menu__item" href="connexion.php">Connexion</a></li>
       <li><a class="menu__item" href="#">Contact</a></li>
+      <li><a class="menu__item" href="https://github.com/Yassine-Fellous/boutique-en-ligne">Code source</a></li>
     </ul>
   </div>
 <!-- ?php endif; ?>
