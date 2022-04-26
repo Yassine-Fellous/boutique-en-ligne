@@ -5,7 +5,7 @@ function ajouterArticles($nom, $description, $prix, $image)
 {
     if(require('../config.php'))
     {
-        $request = $access->("INSERT INTO `produit`(`id`, `nom`, `description`, `prix`, `bin`) VALUES ($nom, $description, $prix, $image)");
+        $request = $access->prepare("INSERT INTO `produit`(`id`, `nom`, `description`, `prix`, `bin`) VALUES ($nom, $description, $prix, $image)");
         $request->execute(array($nom, $description, $prix, $image));
         $request->closeCursor();
     }
@@ -13,7 +13,7 @@ function ajouterArticles($nom, $description, $prix, $image)
 // La fonction pour afficher les produits.
 function afficherProduits()
 {
-    if(require('../config.php'))
+    if(require('php/config.php'))
     {
         $request = $access->prepare("SELECT * FROM `produit` ORDER BY id DESC");
         $request->execute();
