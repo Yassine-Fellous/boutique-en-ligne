@@ -471,11 +471,10 @@ body /* Background toutes pages */
     font-size: 45px;
     color: white;
 }
-/* Page de connexion */
+/* Page de connexion avec inscription */
 .logo-co
 {
-    height: 10%;
-    width: 10%;
+    height: 100px;
 }
 @import url('https://fonts.googleapis.com/css2?family=Shippori+Antique+B1&display=swap');
 .connexion-titre-zone
@@ -532,7 +531,7 @@ body /* Background toutes pages */
     display: flex;
     justify-content: center;
     width: 100%;
-    border: 1px solid rgb(0, 255, 34);
+    background-color: #91f87234;
 }
 label, input
 {
@@ -562,4 +561,55 @@ label
     font-family: 'Shippori Antique B1', sans-serif;
     color: white;
     margin-top: 11%;
+}
+.flex-button
+{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+.margin-vide
+{
+    margin-top: 10%;
+}
+/* Le footer */
+footer
+{
+    background-color: #333;
+    min-height: calc(40vh - 20px - 20px);
+}
+.footer-links-zone
+{
+    display: flex;
+    justify-content: space-around;
+}
+.footer-links:link
+{
+    color: #7a7a7a;
+}
+/* visited link */
+.footer-links:visited
+{
+    color: #7a7a7a;
+}
+/* mouse over link */
+.footer-links:hover
+{
+    color: #8ebf42;
+}
+/* selected link */
+.footer-links:active
+{
+    color: #a3f32a;
+}
+.footer-text
+{
+    font-size: 20px;
+}
+.footer-logo-zone
+{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 5%;
 }
