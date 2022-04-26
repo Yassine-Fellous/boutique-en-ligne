@@ -17,9 +17,10 @@ class Modulco
         }
         $this->bdd = $bdd;
     }
+    // Fonction pour l'inscription
     public function register($_nom, $_prenom, $_email, $_adresse ,$_password, $_passwordConfirm)
     {    
-        echo 'ok';
+        echo 'Inscription terminée';
         $bdd = $this->bdd;
         $nom =  htmlspecialchars($_nom);
         $prenom = htmlspecialchars($_prenom);
@@ -45,29 +46,30 @@ class Modulco
                     $insertinto = $bdd->prepare("INSERT INTO user(nom, prenom, email, adresse, password) VALUES(?, ?, ?, ?, ?)");
                     $insertinto->execute(array($nom, $prenom, $email, $adresse, $password));
                     unset($_SESSION);
-                    //header('Location:../html/connexion.php');
+                    header('Location:../connexion.php');
                 }
                 else
                 {
                     echo'no';
                     $_SESSION['fail'] =  '<font color="red">les passwords ne concordent pas !!!</font>';
-                    //header('Location:finscription');
+                    header('Location:finscription.php');
                 }
             }
             else
             {
                 echo 'no';
                 $_SESSION['fail'] = '<font color="red">Cette email est dejà utilisé !</font>';
-                //header('Location:finscription.php');
+                header('Location:finscription.php');
             }
         }
         else
         {
             echo'no';
             $_SESSION['fail'] = '<font color="red">Il manque des champs !</font>';
-            //header('Location:finscription.php');
+            header('Location:finscription.php');
         }
     }
+    // Fonction pour se connecter
     public function connect($_email, $_password)
     {    
         $bdd = $this->bdd;   
@@ -84,18 +86,18 @@ class Modulco
                 unset($_SESSION['fail']);
                 $_SESSION['id'] = $userinfo['id'];
                 $_SESSION['email'] = $userinfo['email'];
-                //header('Location:../index.php');
+                header('Location:../../index.php');
             }    
             else
             {
                 $_SESSION['fail']= '<font color="red">Login inexsistant ou Password incorrect !</font>';
-                //header('Location:../html/connexion.php');
+                header('Location:../connexion.php');
             }
         }
         else
         {
             $_SESSION['fail'] = '<font color="red"> Il manque des champs !</font>';
-            //header('Location:../html/connexion.php');
+            header('Location:../connexion.php');
         }
     }
 
