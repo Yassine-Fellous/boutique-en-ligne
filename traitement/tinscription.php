@@ -4,6 +4,6 @@ require '../class/moduleco.php';
 if(isset($_POST['submit']))
 {    
     $objet = new Modulco;
-    $objet->connect($_POST['login'], $_POST['password']);
+    $objet->register($_POST['nom'], $_POST['prenom'], $_POST['email'], $_POST['adresse'], $_POST['password'], $_POST['passwordconf']);
 }
 ?>
