@@ -5,7 +5,7 @@ function ajouterArticles($nom, $description, $prix, $image)
 {
     if(require('../config.php')) // On appelle la base de données.
     {
-        $request = $db->prepare("INSERT INTO `produit`(`id`, `nom`, `description`, `prix`, `bin`) VALUES ($nom, $description, $prix, $image)");
+        $request = $db->prepare("INSERT INTO `produit`(`id`, `nom`, `description`, `prix`, `img`) VALUES ($nom, $description, $prix, $image)");
         $request->execute(array($nom, $description, $prix, $image));
         $request->closeCursor(); // On ferme le curseur.
     }
