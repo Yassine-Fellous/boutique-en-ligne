@@ -1,29 +1,21 @@
-<!-- Page par Jul  -->
+<!-- Page par Jul et Yassine -->
 <?php
 require_once('class/commande-fonction.php'); // On appelle la page de fonctions de commandes.
 if(isset($_POST['submit']))
-{//echo'ok';
-  if(isset($_POST['nom']) AND isset($_POST['description']) AND isset($_POST['prix']) AND isset($_POST['image']))
-  {//echo'ok';
-    if(!empty($_POST['nom']) AND !empty($_POST['description']) AND !empty($_POST['prix']) AND !empty($_POST['image']))
-    {//echo'ok';
-      $nom = htmlspecialchars(strip_tags($_POST['nom']));
-      //echo'ok';
-      $description = htmlspecialchars(strip_tags($_POST['description']));
-      //echo'ok';
-      $prix = htmlspecialchars(strip_tags($_POST['prix']));
-      //echo'ok';
-      $image = htmlspecialchars(strip_tags($_POST['image']));
-      //echo'ok';
-      try
-      {
-        ajouterArticles($nom, $description, $prix, $image);
-        //echo'ok';
-      }
-      catch(Exception $message)
-      {
-        $message->getMessage();
-      }
+{
+  if(!empty($_POST['nom']) && !empty($_POST['description']) && !empty($_POST['prix']) && !empty($_POST['image']))
+  {
+    $nom = htmlspecialchars(strip_tags($_POST['nom']));  
+    $description = htmlspecialchars(strip_tags($_POST['description']));  
+    $prix = htmlspecialchars(strip_tags($_POST['prix']));
+    $image = htmlspecialchars(strip_tags($_POST['image'])); 
+    try
+    {
+      ajouterArticles($nom, $description, $prix, $image);
+    }
+    catch(Exception $message)
+    {
+      $message->getMessage();
     }
   }
 }
