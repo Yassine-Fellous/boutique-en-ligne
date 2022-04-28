@@ -10,7 +10,7 @@ if(!isset($_SESSION['id_droit']) AND $_SESSION['id_droit'] !== "1337") // Seul l
 $produits=afficherProduits2(); // On appelle la classe pour afficher les produits.
 if(isset($_POST['submit']))
 {
-  if(!empty($_POST['id_produit']))
+  if(!empty($_POST['id_produit']) AND is_numeric($_POST['id_produit']))
   {  
     $idProduit = htmlspecialchars(strip_tags($_POST['id_produit']));
     try
