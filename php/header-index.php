@@ -9,11 +9,13 @@ session_start();
         <input type="text" placeholder="Recherchez ...">
         <div class="search"></div>
     </div>
-    <ul class="navigation">
-        <li><a href="#" title="Le shop, parcourez notre large gamme de produits">Shop</a></li>
-        <li><a href="php/deconnexion.php"><img class="logout" title="Se déconnecter" src="images/logout.png" alt="logo"></img></a>
-    </ul>
     
+    <ul class="navigation">
+        <li><a href="php/deconnexion.php"><img class="logout" title="Se déconnecter" src="images/logout.png" alt="logo"></img></a>
+        <?php if($_SESSION['id_droit'] == 1337) : ?> <!-- Seul l'admin verra cette section dans le header. 👮 -->
+            <li><a href="php/admin.php"><img class="logout" title="Accèdez au panel d'administration" src="images/admin.png" alt="logo"></img></a>
+            <?php endif; ?>
+    </ul>
     <?php else: ?> <!-- Lorsque la personne est déconnectée, il verra ces 2 sections dans le header. -->
         <img class="logo-header" src="images/logo.png">
         <div class="barre-de-recherche">
@@ -21,7 +23,6 @@ session_start();
             <div class="search"></div>
         </div>
         <ul class="navigation">
-            <li><a href="#" title="Le shop, parcourez notre large gamme de produits">Shop</a></li>
             <li><a href="php/connexion.php"><img class="logout" title="Se connecter" src="images/user.png" alt="logo"></img></a>
         </ul>
         <?php endif; ?>
