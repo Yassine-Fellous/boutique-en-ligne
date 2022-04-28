@@ -1,4 +1,4 @@
-<!-- Page par Marcel -->
+<!-- Page par Jul -->
 <?php // PHP
 session_start(); // Ouverture de session.
 require_once('config.php'); // On appelle la page de fonctions de commandes.
