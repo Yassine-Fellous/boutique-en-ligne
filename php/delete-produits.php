@@ -36,7 +36,6 @@ if(isset($_POST['submit']))
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Shippori+Antique+B1&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="../css/boutique.css"/>
-    <link rel="stylesheet" type="text/css" href="../css/responsive.css"/>
     <link rel="stylesheet" type="text/css" href="../css/style.css"/>
     <title>Supprimer un produit - Instagreen Shop</title>
 </head>
