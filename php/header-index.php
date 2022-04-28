@@ -11,6 +11,7 @@ session_start();
     </div>
     
     <ul class="navigation">
+        <li><a href="#"><img class="logout" title="Panier" src="images/caddie.png" alt="logo"></img></a>
         <li><a href="php/deconnexion.php"><img class="logout" title="Se déconnecter" src="images/logout.png" alt="logo"></img></a>
         <?php if($_SESSION['id_droit'] == 1337) : ?> <!-- Seul l'admin verra cette section dans le header. 👮 -->
             <li><a href="php/admin.php"><img class="logout" title="Accèdez au panel d'administration" src="images/admin.png" alt="logo"></img></a>
