@@ -1,6 +1,12 @@
 <!-- Page par Jul et Yassine -->
 <?php
+session_start();
 require_once('class/commande-fonction.php'); // On appelle la page de fonctions de commandes.
+if(!isset($_SESSION['id_droit']) AND $_SESSION['id_droit'] !== "1337") // Seul l'admin peut accéder à cette page. ⛔👮
+{
+    header('Location: ../index.php'); // Redirection vers l'index si ce n'est pas l'admin ou si aucune session est active.
+    die();
+}
 if(isset($_POST['submit']))
 {
   if(!empty($_POST['nom']) && !empty($_POST['description']) && !empty($_POST['prix']) && !empty($_POST['image']))
