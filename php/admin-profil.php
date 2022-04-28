@@ -41,6 +41,7 @@ $grabID=$_GET['id']; // Il va récupérer l'utilisateur sélectionné.
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Shippori+Antique+B1&display=swap" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="../css/boutique.css"/>
+        <link rel="stylesheet" type="text/css" href="../css/style.css"/>
         <title>Modifier le profil - Instagreen Shop</title>
     </head>
     <body>
@@ -85,6 +86,19 @@ $grabID=$_GET['id']; // Il va récupérer l'utilisateur sélectionné.
                     </div>
                 </div>
             </div>
+            <div class="margin-vide"></div>
         </main>
+        <footer>
+            <div class="footer-links-zone">
+                <a class="footer-links" href="php/produit.php"><p5 class="footer-text">Produits</p5></a>
+                <a class="footer-links" href="php/profil.php"><p5 class="footer-text">Compte</p5></a>
+                <a class="footer-links" href="php/inscription.php"><p5 class="footer-text">Inscription</p5></a>
+                <a class="footer-links" href="https://github.com/Yassine-Fellous/boutique-en-ligne"><p5 class="footer-text">Code source</p5></a>
+                <a class="footer-links" href="#"><p5 class="footer-text">Contact</p5></a>
+            </div>
+            <div class="footer-logo-zone">
+                <img class="footer-logo" src="../images/mascotte.png"/>
+            </div>
+        </footer>
     </body>
 </html>
