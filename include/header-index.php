@@ -6,10 +6,9 @@ session_start();
 <?php if(isset($_SESSION['id'])) : ?> <!-- Lorsque la personne est connectée, il verra ces sections dans le header. -->
     <img class="logo-header" src="images/logo.png">
     <div class="barre-de-recherche">
-        <input type="text" placeholder="Recherchez ...">
+        <input type="search" placeholder="Recherchez ...">
         <div class="search"></div>
     </div>
-    
     <ul class="navigation">
         <li><a href="#"><img class="logout" title="Panier" src="images/caddie.png" alt="logo"></img></a>
         <li><a href="php/deconnexion.php"><img class="logout" title="Se déconnecter" src="images/logout.png" alt="logo"></img></a>
@@ -20,7 +19,7 @@ session_start();
     <?php else: ?> <!-- Lorsque la personne est déconnectée, il verra ces 2 sections dans le header. -->
         <img class="logo-header" src="images/logo.png">
         <div class="barre-de-recherche">
-            <input type="text" placeholder="Recherchez ...">
+            <input type="search" placeholder="Recherchez ...">
             <div class="search"></div>
         </div>
         <ul class="navigation">
