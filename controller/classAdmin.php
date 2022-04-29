@@ -8,6 +8,7 @@ class Admin extends Database
 
     public function admin()
     {
+        $db = $this->db;
         if (!isset($_SESSION['id_droit']) and $_SESSION['id_droit'] !== "1337") // Seul l'admin peut accéder à cette page. ⛔👮
         {
             header('Location: ../index.php');
@@ -24,6 +25,7 @@ class Admin extends Database
 
     public function updateUser()
     {
+        $db = $this->db;
         $edit = $db->query('SELECT * FROM `user` WHERE id'); // Je sélectionne les membres.
         if (!isset($_SESSION['id_droit']) and $_SESSION['id_droit'] !== "1337") // Seul l'admin peut accéder à cette page. ⛔👮
         {
