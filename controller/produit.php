@@ -25,6 +25,12 @@ $produits=afficherProduits(); // On appelle la classe pour afficher les produits
                      <div class="price_box">
                         <h6 class="price_heading"><strong><?= $produit->prix ?> €</h6></strong>
                      </div>
+                     <div class="flex-button">
+                        <input class="connexion" type="submit" value="Ajouter au panier" name="submit"></input>
+                     </div><br />
+                     <div class="flex-button">
+                        <input class="connexion" type="submit" value="Voir le produit" name="submit"></input>
+                     </div><br />
                   </div>
                </div>
             </div>
