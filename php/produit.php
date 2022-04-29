@@ -21,7 +21,7 @@ $produits=afficherProduits(); // On appelle la classe pour afficher les produits
                         <i class="fa fa-star-half-o" aria-hidden="true"></i>
                      </span>
                      <a href=""><?= $produit->nom ?></a><br />
-                     <h5 href=""><?= $produit->description ?></a>
+                     <h5 href=""><?= substr($produit->description, 0, 50); ?>...</a>
                      <div class="price_box">
                         <h6 class="price_heading"><strong><?= $produit->prix ?> €</h6></strong>
                      </div>
