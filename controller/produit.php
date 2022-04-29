@@ -23,7 +23,7 @@ $produits=afficherProduits(); // On appelle la classe pour afficher les produits
                      <a href=""><?= $produit->nom ?></a><br />
                      <h5 href=""><?= substr($produit->description, 0, 50); ?>...</a>
                      <div class="price_box">
-                        <h6 class="price_heading"><strong><?= number_format($produit->prix,2); ?> €</h6></strong>
+                        <h6 class="price_heading"><strong><?= number_format($produit->prix,2,',',' '); ?> €</h6></strong>
                      </div>
                      <div class="flex-button">
                         <input class="connexion" type="submit" value="Ajouter au panier" name="submit"></input>
