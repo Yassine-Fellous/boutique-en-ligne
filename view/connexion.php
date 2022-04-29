@@ -1,7 +1,7 @@
 <!-- Page par Jul et Yassine -->
 <?php
 session_start(); // On ouvre une session.
-require_once('config.php'); // On appelle la base de données.
+require_once('Bdd.php'); // On appelle la base de données.
 ?>
 <!DOCTYPE html>
 <html lang="fr">

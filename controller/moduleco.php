@@ -1,6 +1,6 @@
 <?php
 session_start();
-class Modulco{
+class Modulco {
 
     private $db;
 
