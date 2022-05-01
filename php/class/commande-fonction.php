@@ -11,18 +11,6 @@ function ajouterArticles($nom, $description, $prix, $image)
         $request->closeCursor(); // On ferme le curseur.
     }
 }
-// La fonction pour afficher les produits.
-function afficherProduits()
-{
-    if(require('php/config.php')) // On appelle la base de données.
-    {
-        $request = $db->prepare("SELECT * FROM `produit` ORDER BY id DESC");
-        $request->execute();
-        $data = $request->fetchAll(PDO::FETCH_OBJ);
-        return $data;
-        $request->closeCursor(); // On ferme le curseur.
-    }
-}
 function afficherProduits2()
 {
     if(require('config.php')) // On appelle la base de données.
