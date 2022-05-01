@@ -1,7 +1,9 @@
 <!-- Page par Jul -->
 <?php
-require_once('class/panier-class.php'); // On appelle la page de fonctions de commandes.
-$panier = new panier()
+include('class/class-panier.php');
+require_once('config.php'); // On appelle la BDD
+$db = new bdd();
+$panier = new panier();
 ?>
 <!-- Header dynamique -->
 <?php if(isset($_SESSION['id'])) : ?> <!-- Lorsque la personne est connectée, il verra ces sections dans le header. -->
