@@ -77,7 +77,7 @@ if(isset($_GET['supprimer-produit']))
                                           <a href="panier.php?supprimer-produit=<?= $produit->id; ?>"><img class="poubelle-panier" src="../images/trash.png"/></a>
                                              <div style="width: 50px;">
                                              <!-- Quantité -->
-                                             <h5 class="fw-normal mb-0">2</h5>
+                                             <h5 class="fw-normal mb-0"><?= $_SESSION['panier'][$produit->id]; ?></h5>
                                           </div>
                                           <div style="width: 80px;">
                                           <!-- Prix -->
@@ -126,14 +126,6 @@ if(isset($_GET['supprimer-produit']))
                                 </div>
                               </form>
                               <hr class="my-4">
-                              <div class="d-flex justify-content-between">
-                                <p class="mb-2">Subtotal</p>
-                                <p class="mb-2">$4798.00</p>
-                              </div>
-                              <div class="d-flex justify-content-between">
-                                <p class="mb-2">Shipping</p>
-                                <p class="mb-2">$20.00</p>
-                              </div>
                               <div class="d-flex justify-content-between mb-4">
                                 <p class="mb-2">Total</p>
                                 <p class="mb-2">$4818.00</p>
