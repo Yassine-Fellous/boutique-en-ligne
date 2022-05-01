@@ -1,9 +1,15 @@
 <!-- Page par Jul -->
 <?php
 require_once('config.php'); // On appelle la base de données.
+include('class/class-panier.php');
 $db = new bdd(); // On appelle la class bdd.
-session_start();
+$panier = new panier();
 $produits = $db->query('SELECT * FROM `produit` ORDER BY id DESC');
+// Pour supprimer un produit du panier
+if(isset($_GET['supprimer-produit']))
+{
+  $panier->supprimerProduitDuPanier($_GET['supprimer-produit']);
+}
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -32,11 +38,6 @@ $produits = $db->query('SELECT * FROM `produit` ORDER BY id DESC');
             <p1 class="connexion-titre">Votre panier</p1>
          </div>
          <section>
-            <?php
-            $idProduits = array_keys($_SESSION['panier']);
-            $produits = $db->query('SELECT * FROM `produit` WHERE id IN ('.implode(',',$idProduits).')');
-            foreach($produits as $produit):
-            ?>
             <div class="container py-5 h-100">
                <div class="row d-flex justify-content-center align-items-center h-100">
                   <div class="col">
@@ -44,6 +45,19 @@ $produits = $db->query('SELECT * FROM `produit` ORDER BY id DESC');
                         <div class="card-body p-4">
                            <div class="row">
                               <div class="col-lg-7">
+                              <?php
+                              $idProduits = array_keys($_SESSION['panier']);
+                              // Pour accéder au panier vide sans erreur.
+                              if(empty($idProduits))
+                              {
+                                $produits = array();
+                              }
+                              else // Sinon ça fonctionne normalement
+                              {
+                                $produits = $db->query('SELECT * FROM `produit` WHERE id IN ('.implode(',',$idProduits).')');
+                              }
+                              foreach($produits as $produit): // Une boucle est crée pour afficher le nom, image, description et prix des produits via la base de données (mais surtout choisi dans le panier)
+                              ?>
                                  <div class="card mb-3">
                                     <div class="card-body">
                                        <div class="d-flex justify-content-between">
@@ -60,7 +74,9 @@ $produits = $db->query('SELECT * FROM `produit` ORDER BY id DESC');
                                              </div>
                                           </div>
                                           <div class="d-flex flex-row align-items-center">
+                                          <a href="panier.php?supprimer-produit=<?= $produit->id; ?>"><img class="poubelle-panier" src="../images/trash.png"/></a>
                                              <div style="width: 50px;">
+                                             <!-- Quantité -->
                                              <h5 class="fw-normal mb-0">2</h5>
                                           </div>
                                           <div style="width: 80px;">
@@ -72,91 +88,68 @@ $produits = $db->query('SELECT * FROM `produit` ORDER BY id DESC');
                                  </div>
                               </div>
                            </div>
-                           
                         <?php endforeach; ?>
-              <div class="col-lg-5">
-
-                <div class="card bg-primary text-white rounded-3">
-                  <div class="card-body">
-                    <div class="d-flex justify-content-between align-items-center mb-4">
-                      <h5 class="mb-0">Détails de la carte</h5>
-                    </div>
-
-                    <p class="small mb-2">Type de cartes acceptés :</p>
-                    <a href="#!" type="submit" class="text-white"><i
-                        class="fab fa-cc-mastercard fa-2x me-2"></i></a>
-                    <a href="#!" type="submit" class="text-white"><i
-                        class="fab fa-cc-visa fa-2x me-2"></i></a>
-                    <a href="#!" type="submit" class="text-white"><i
-                        class="fab fa-cc-amex fa-2x me-2"></i></a>
-                    <a href="#!" type="submit" class="text-white"><i class="fab fa-cc-paypal fa-2x"></i></a>
-
-                    <form class="mt-4">
-                      <div class="form-outline form-white mb-4">
-                        <input type="text" id="typeName" class="form-control form-control-lg" siez="17"
-                          placeholder="Elon Musk" />
-                        <label class="form-label" for="typeName">Nom sur la carte</label>
-                      </div>
-
-                      <div class="form-outline form-white mb-4">
-                        <input type="text" id="typeText" class="form-control form-control-lg" siez="17"
-                          placeholder="1234 5678 9012 3457" minlength="19" maxlength="19" />
-                        <label class="form-label" for="typeText">Numéro de carte bancaire</label>
-                      </div>
-
-                      <div class="row mb-4">
-                        <div class="col-md-6">
-                          <div class="form-outline form-white">
-                            <input type="text" id="typeExp" class="form-control form-control-lg"
-                              placeholder="MM/AA" size="7" id="exp" minlength="7" maxlength="7" />
-                            <label class="form-label" for="typeExp">Expiration</label>
+                        <div class="col-lg-5">
+                          <div class="card bg-primary text-white rounded-3">
+                            <div class="card-body">
+                              <div class="d-flex justify-content-between align-items-center mb-4">
+                                <h5 class="mb-0">Détails de la carte</h5>
+                              </div>
+                              <p class="small mb-2">Type de cartes acceptés :</p>
+                              <a href="#!" type="submit" class="text-white"><i class="fab fa-cc-mastercard fa-2x me-2"></i></a>
+                              <a href="#!" type="submit" class="text-white"><i class="fab fa-cc-visa fa-2x me-2"></i></a>
+                              <a href="#!" type="submit" class="text-white"><i class="fab fa-cc-amex fa-2x me-2"></i></a>
+                              <a href="#!" type="submit" class="text-white"><i class="fab fa-cc-paypal fa-2x"></i></a>
+                              <form class="mt-4">
+                                <div class="form-outline form-white mb-4">
+                                  <input type="text" id="typeName" class="form-control form-control-lg" siez="17" placeholder="Elon Musk" />
+                                  <label class="form-label" for="typeName">Nom sur la carte</label>
+                                </div>
+                                <div class="form-outline form-white mb-4">
+                                  <input type="text" id="typeText" class="form-control form-control-lg" siez="17"
+                                  placeholder="1234 5678 9012 3457" minlength="19" maxlength="19" />
+                                  <label class="form-label" for="typeText">Numéro de carte bancaire</label>
+                                </div>
+                                <div class="row mb-4">
+                                  <div class="col-md-6">
+                                    <div class="form-outline form-white">
+                                      <input type="text" id="typeExp" class="form-control form-control-lg" placeholder="MM/AA" size="7" id="exp" minlength="7" maxlength="7" />
+                                      <label class="form-label" for="typeExp">Expiration</label>
+                                    </div>
+                                  </div>
+                                  <div class="col-md-6">
+                                    <div class="form-outline form-white">
+                                      <input type="password" id="typeText" class="form-control form-control-lg" placeholder="&#9679;&#9679;&#9679;" size="1" minlength="3" maxlength="3" />
+                                      <label class="form-label" for="typeText">CVV</label>
+                                    </div>
+                                  </div>
+                                </div>
+                              </form>
+                              <hr class="my-4">
+                              <div class="d-flex justify-content-between">
+                                <p class="mb-2">Subtotal</p>
+                                <p class="mb-2">$4798.00</p>
+                              </div>
+                              <div class="d-flex justify-content-between">
+                                <p class="mb-2">Shipping</p>
+                                <p class="mb-2">$20.00</p>
+                              </div>
+                              <div class="d-flex justify-content-between mb-4">
+                                <p class="mb-2">Total</p>
+                                <p class="mb-2">$4818.00</p>
+                              </div>
+                              <button type="button" class="btn btn-info btn-block btn-lg">
+                                <div class="d-flex justify-content-between">
+                                  <span>Payer <i class="fas fa-long-arrow-alt-right"></i></span>
+                                </div>
+                              </button>
+                            </div>
                           </div>
                         </div>
-                        <div class="col-md-6">
-                          <div class="form-outline form-white">
-                            <input type="password" id="typeText" class="form-control form-control-lg"
-                              placeholder="&#9679;&#9679;&#9679;" size="1" minlength="3" maxlength="3" />
-                            <label class="form-label" for="typeText">CVV</label>
-                          </div>
-                        </div>
                       </div>
-
-                    </form>
-
-                    <hr class="my-4">
-
-                    <div class="d-flex justify-content-between">
-                      <p class="mb-2">Subtotal</p>
-                      <p class="mb-2">$4798.00</p>
                     </div>
-
-                    <div class="d-flex justify-content-between">
-                      <p class="mb-2">Shipping</p>
-                      <p class="mb-2">$20.00</p>
-                    </div>
-
-                    <div class="d-flex justify-content-between mb-4">
-                      <p class="mb-2">Total</p>
-                      <p class="mb-2">$4818.00</p>
-                    </div>
-
-                    <button type="button" class="btn btn-info btn-block btn-lg">
-                      <div class="d-flex justify-content-between">
-                        <span>$4818.00</span>
-                        <span>Checkout <i class="fas fa-long-arrow-alt-right ms-2"></i></span>
-                      </div>
-                    </button>
-
                   </div>
                 </div>
-
               </div>
-
             </div>
-
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+          </section>
