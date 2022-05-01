@@ -1,4 +1,4 @@
-<!-- Page par Sofiane et Jul -->
+<!-- Page par Jul -->
 <?php
 require_once('config.php'); // On appelle la base de données.
 $db = new bdd(); // On appelle la class bdd.
@@ -24,67 +24,58 @@ $produits = $db->query('SELECT * FROM `produit` ORDER BY id DESC');
 </head>
 <body>
     <main>
-    <section>
-  <div class="container py-5 h-100">
-    <div class="row d-flex justify-content-center align-items-center h-100">
-      <div class="col">
-        <div class="card">
-          <div class="card-body p-4">
-
-            <div class="row">
-
-              <div class="col-lg-7">
-
-                <div class="d-flex justify-content-between align-items-center mb-4">
-                  <div>
-                    <p class="mb-1">Shopping cart</p>
-                  </div>
-                  <div>
-                    <p class="mb-0"><span class="text-muted">Sort by:</span> <a href="#!"
-                        class="text-body">price <i class="fas fa-angle-down mt-1"></i></a></p>
-                  </div>
-                </div>
-
-                <div class="card mb-3">
-                  <div class="card-body">
-                    <div class="d-flex justify-content-between">
-                      <div class="d-flex flex-row align-items-center">
-                        <div>
-                          <img
-                            src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-shopping-carts/img1.webp"
-                            class="img-fluid rounded-3" alt="Shopping item" style="width: 65px;">
-                        </div>
-                        <?php
-                        $idProduits = array_keys($_SESSION['panier']);
-                        $produits = $db->query('SELECT * FROM `produit` WHERE id IN ('.implode(',',$idProduits).')');
-                        foreach($produits as $produit):
-                        ?>
-                        <div class="ms-3">
-                           <!-- Nom du produit -->
-                          <h5><?= $produit->nom ?></h5>
-                          <!-- Description -->
-                          <p class="small mb-0"><?= substr($produit->description, 0, 20); ?>...</p>
-                        </div>
-                      </div>
-                      <div class="d-flex flex-row align-items-center">
-                        <div style="width: 50px;">
-                          <h5 class="fw-normal mb-0">2</h5>
-                        </div>
-                        <div style="width: 80px;">
-                        <!-- Prix -->
-                          <h5 class="mb-0"><?= number_format($produit->prix,2,',',' '); ?> €</h5>
-                        </div>
-                        <a href="#!" style="color: #cecece;"><i class="fas fa-trash-alt"></i></a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="card mb-3">
-                  <div class="card-body">
-                    <div class="d-flex justify-content-between">
-                      <div class="d-flex flex-row align-items-center">
-                        <div>
+       <div class="logo-zone">
+          <a href="../index.php"><img class="logo-co" src="../images/logo.png"/></a>
+         </div>
+         <div class="connexion-titre-zone">
+            <p1 class="connexion-titre">Votre panier</p1>
+         </div>
+         <section>
+            <?php
+            $idProduits = array_keys($_SESSION['panier']);
+            $produits = $db->query('SELECT * FROM `produit` WHERE id IN ('.implode(',',$idProduits).')');
+            foreach($produits as $produit):
+            ?>
+            <div class="container py-5 h-100">
+               <div class="row d-flex justify-content-center align-items-center h-100">
+                  <div class="col">
+                     <div class="card">
+                        <div class="card-body p-4">
+                           <div class="row">
+                              <div class="col-lg-7">
+                                 <div class="card mb-3">
+                                    <div class="card-body">
+                                       <div class="d-flex justify-content-between">
+                                          <div class="d-flex flex-row align-items-center">
+                                             <!-- Image du produit -->
+                                             <div>
+                                                <img src="../<?= $produit->img ?>" class="img-fluid rounded-3" alt="Shopping item" style="width: 65px;"/>
+                                             </div>
+                                             <div class="ms-3">
+                                                <!-- Nom du produit -->
+                                                <h5><?= $produit->nom ?></h5>
+                                                <!-- Description -->
+                                                <p class="small mb-0"><?= substr($produit->description, 0, 40); ?>...</p>
+                                             </div>
+                                          </div>
+                                          <div class="d-flex flex-row align-items-center">
+                                             <div style="width: 50px;">
+                                             <h5 class="fw-normal mb-0">2</h5>
+                                          </div>
+                                          <div style="width: 80px;">
+                                          <!-- Prix -->
+                                          <h5 class="mb-0"><?= number_format($produit->prix,2,',',' '); ?> €</h5>
+                                       </div>
+                                       <a href="#!" style="color: #cecece;"><i class="fas fa-trash-alt"></i></a>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="card mb-3">
+                              <div class="card-body">
+                                 <div class="d-flex justify-content-between">
+                                    <div class="d-flex flex-row align-items-center">
+                                       <div>
                           <img
                             src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-shopping-carts/img2.webp"
                             class="img-fluid rounded-3" alt="Shopping item" style="width: 65px;">
@@ -152,7 +143,7 @@ $produits = $db->query('SELECT * FROM `produit` ORDER BY id DESC');
                     </div>
 
                     <div class="d-flex justify-content-between mb-4">
-                      <p class="mb-2">Total(Incl. taxes)</p>
+                      <p class="mb-2">Total</p>
                       <p class="mb-2">$4818.00</p>
                     </div>
 
