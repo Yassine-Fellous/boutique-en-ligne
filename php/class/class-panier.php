@@ -1,3 +1,4 @@
+<!-- Page par Jul -->
 <?php
 class panier
 {
@@ -15,5 +16,9 @@ class panier
     public function ajouterProduitAuPanier($idProduit)
     {
         $_SESSION['panier'][$idProduit] = 1;
+    }
+    public function supprimerProduitDuPanier($idProduit)
+    {
+        unset($_SESSION['panier'][$idProduit]);
     }
 }
