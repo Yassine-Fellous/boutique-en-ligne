@@ -1,7 +1,6 @@
 <!-- Page par Sofiane et Jul -->
 <?php
-require_once('class/commande-fonction.php'); // On appelle la page de fonctions de commandes.
-$produits=afficherProduits(); // On appelle la classe pour afficher les produits.
+$produits = $db->query('SELECT * FROM `produit` ORDER BY id DESC');
 ?>
 <section class="product_section layout_padding2-top layout_padding-bottom">
    <div class="container">
