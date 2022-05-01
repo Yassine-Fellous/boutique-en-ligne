@@ -16,15 +16,15 @@ $produits = $db->query('SELECT * FROM `produit` ORDER BY id DESC');
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Shippori+Antique+B1&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="../css/boutique.css"/>
     <link rel="stylesheet" type="text/css" href="../css/bootstrap.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/boutique.css"/>
     <link rel="stylesheet" type="text/css" href="../css/responsive.css"/>
     <link rel="stylesheet" type="text/css" href="../css/style.css"/>
     <title>Votre panier - Instagreen Shop</title>
 </head>
 <body>
     <main>
-    <section class="h-100 h-custom" style="background-color: #eee;">
+    <section>
   <div class="container py-5 h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col">
@@ -96,8 +96,6 @@ $produits = $db->query('SELECT * FROM `produit` ORDER BY id DESC');
                   <div class="card-body">
                     <div class="d-flex justify-content-between align-items-center mb-4">
                       <h5 class="mb-0">Card details</h5>
-                      <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-6.webp"
-                        class="img-fluid rounded-3" style="width: 45px;" alt="Avatar">
                     </div>
 
                     <p class="small mb-2">Card type</p>
