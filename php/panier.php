@@ -3,13 +3,8 @@
 require_once('config.php'); // On appelle la base de données.
 include('class/class-panier.php');
 $db = new bdd(); // On appelle la class bdd.
-$panier = new panier();
+$panier = new panier($db);
 $produits = $db->query('SELECT * FROM `produit` ORDER BY id DESC');
-// Pour supprimer un produit du panier
-if(isset($_GET['supprimer-produit']))
-{
-  $panier->supprimerProduitDuPanier($_GET['supprimer-produit']);
-}
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -128,7 +123,7 @@ if(isset($_GET['supprimer-produit']))
                               <hr class="my-4">
                               <div class="d-flex justify-content-between mb-4">
                                 <p class="mb-2">Total</p>
-                                <p class="mb-2">$4818.00</p>
+                                <p class="mb-2"><?= number_format($panier->prixTotal(),2,',',' '); ?> €</p>
                               </div>
                               <button type="button" class="btn btn-info btn-block btn-lg">
                                 <div class="d-flex justify-content-between">
