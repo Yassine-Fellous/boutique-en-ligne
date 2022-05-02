@@ -11,7 +11,7 @@ function ajouterArticles($nom, $description, $prix, $image)
         $request->closeCursor(); // On ferme le curseur.
     }
 }
-function afficherProduits2()
+function afficherProduits()
 {
     if(require('config.php')) // On appelle la base de données.
     {
