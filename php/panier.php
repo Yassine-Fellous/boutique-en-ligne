@@ -53,6 +53,7 @@ $produits = $db->query('SELECT * FROM `produit` ORDER BY id DESC');
                               }
                               foreach($produits as $produit): // Une boucle est crée pour afficher le nom, image, description et prix des produits via la base de données (mais surtout choisi dans le panier)
                               ?>
+                              <form method="POST" action="panier.php">
                                  <div class="card mb-3">
                                     <div class="card-body">
                                        <div class="d-flex justify-content-between">
@@ -72,7 +73,7 @@ $produits = $db->query('SELECT * FROM `produit` ORDER BY id DESC');
                                           <a href="panier.php?supprimer-produit=<?= $produit->id; ?>"><img class="poubelle-panier" src="../images/trash.png"/></a>
                                              <div style="width: 50px;">
                                              <!-- Quantité -->
-                                             <h5 class="fw-normal mb-0"><?= $_SESSION['panier'][$produit->id]; ?></h5>
+                                             <span class="fw-normal mb-0"><input type="text" name="panier[quantity][<?= $produit->id; ?>]" value="<?= $_SESSION['panier'][$produit->id]; ?>"></span>
                                           </div>
                                           <div style="width: 80px;">
                                           <!-- Prix -->
@@ -83,6 +84,8 @@ $produits = $db->query('SELECT * FROM `produit` ORDER BY id DESC');
                                  </div>
                               </div>
                            </div>
+                           <input type="submit" value="Quantité">
+                          </form>
                         <?php endforeach; ?>
                         <div class="col-lg-5">
                           <div class="card bg-primary text-white rounded-3">
@@ -127,7 +130,7 @@ $produits = $db->query('SELECT * FROM `produit` ORDER BY id DESC');
                               </div>
                               <button type="button" class="btn btn-info btn-block btn-lg">
                                 <div class="d-flex justify-content-between">
-                                  <span>Payer <i class="fas fa-long-arrow-alt-right"></i></span>
+                                  <span>Payer<i class="fas fa-long-arrow-alt-right"></i></span>
                                 </div>
                               </button>
                             </div>
