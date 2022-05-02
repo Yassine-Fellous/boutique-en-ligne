@@ -28,7 +28,7 @@ $produits = $db->query('SELECT * FROM `produit` ORDER BY id DESC');
                         <a href="php/ajouter-au-panier.php?id=<?= $produit->id; ?>"><input class="connexion" type="submit" value="Ajouter au panier" name="panier"></input></a>
                      </div><br />
                      <div class="flex-button">
-                        <input class="connexion" type="submit" value="Voir le produit" name="submit"></input>
+                        <a href="php/fiche-produit.php?id=<?= $produit->id; ?>"><input class="connexion" type="submit" value="Voir le produit" name="submit"></input></a>
                      </div><br />
                   </div>
                </div>
