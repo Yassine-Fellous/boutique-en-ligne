@@ -22,10 +22,17 @@ $idProduit = $db->query("SELECT * FROM `produit` WHERE id = '$idProduit'"); // J
     <title>Fiche du produit - Instagreen Shop</title>
 </head>
 <body>
+    <header class="header-pc">
+        <?php
+        include ("header-index2.php");
+        ?>
+    </header>
+    <header class="header-mobile">
+        <?php
+        include ("header-index-mobile2.php");
+        ?>
+    </header>
     <main>
-        <div class="logo-zone">
-          <a href="../index.php"><img class="logo-co" src="../images/logo.png"/></a>
-        </div>
         <div class="connexion-titre-zone">
             <p1 class="connexion-titre">Fiche produit</p1>
         </div>
