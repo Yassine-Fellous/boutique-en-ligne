@@ -742,3 +742,27 @@ footer
 {
     margin-top: 3%;
 }
+/* Fiche produit */
+.fiche-produit
+{
+    margin-top: 3%;
+}
+.image-produit
+{
+    height: 15%;
+    width: 15%;
+}
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100&display=swap');
+.description-produit, .prix-fiche-produit, .nom-fiche-produit
+{
+    font-family: 'League Spartan', sans-serif;
+    font-size: 25px;
+    text-align: center;
+}
+.fiche-produit-zone
+{
+    display: flex;
+    background-color: #00DDEB;
+    justify-content: center;
+    width: 100%;
+}
