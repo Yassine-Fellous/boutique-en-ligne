@@ -1,7 +1,7 @@
 <!-- Page par Jul et Yassine -->
 <?php
 session_start(); // On ouvre une session.
-require_once('../model/Bdd.php'); // On appelle la base de données.
+require_once('config.php'); // On appelle la base de données.
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -22,7 +22,7 @@ require_once('../model/Bdd.php'); // On appelle la base de données.
 <body>
   <main>
     <div class="logo-zone">
-      <a href="../index.php"><img class="logo-co" src="../images/logo.png" /></a>
+      <a href="index.html"><img class="logo-co" src="../images/logo.png" /></a>
     </div>
     <div class="connexion-titre-zone">
       <p1 class="connexion-titre">Connectez-vous</p1>
@@ -54,3 +54,7 @@ require_once('../model/Bdd.php'); // On appelle la base de données.
         </div>
       </div>
     </div>
+  </main>
+</body>
+
+</html>

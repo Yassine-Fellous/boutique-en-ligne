@@ -1,7 +1,7 @@
 <!-- Page par Jul et Yassine -->
 <?php
 session_start(); // On ouvre une session.
-require_once('Bdd.php'); // On appelle la base de données.
+require_once('config.php'); // On appelle la base de données.
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -23,7 +23,7 @@ require_once('Bdd.php'); // On appelle la base de données.
 <body>
   <main>
     <div class="logo-zone">
-      <a href="../index.php"><img class="logo-co" src="../images/logo.png" /></a>
+      <a href="index.html"><img class="logo-co" src="../images/logo.png" /></a>
     </div>
     <div class="connexion-titre-zone">
       <p1 class="connexion-titre">Inscrivez-vous</p1>
@@ -78,7 +78,7 @@ require_once('Bdd.php'); // On appelle la base de données.
       <a class="footer-links" href="produit.php">
         <p5 class="footer-text">Produits</p5>
       </a>
-      <a class="footer-links" href="../index.php">
+      <a class="footer-links" href="index.html">
         <p5 class="footer-text">Accueil</p5>
       </a>
       <a class="footer-links" href="https://github.com/Yassine-Fellous/boutique-en-ligne">

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : jeu. 28 avr. 2022 à 08:59
+-- Généré le : ven. 29 avr. 2022 à 14:16
 -- Version du serveur : 8.0.28
 -- Version de PHP : 8.1.3
 
@@ -93,7 +93,7 @@ CREATE TABLE IF NOT EXISTS `produit` (
   `prix` varchar(255) NOT NULL,
   `id_catégorie` int NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `produit`
@@ -121,17 +121,18 @@ CREATE TABLE IF NOT EXISTS `user` (
   `email` varchar(255) NOT NULL,
   `adresse` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `id_droit` int NOT NULL,
+  `id_droit` int NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `user`
 --
 
 INSERT INTO `user` (`id`, `nom`, `prenom`, `email`, `adresse`, `password`, `id_droit`) VALUES
-(1, 'Test', 'Test', 'testmessage@laplateforme.io', 'feur', 'ee26b0dd4af7e749aa1a8ee3c10ae9923f618980772e473f8819a5d4940e0db27ac185f8a0e1d5f84f88bc887fd67b143732c304cc5fa9ad8e6f57f50028a8ff', 0),
-(2, 'test', 'test', 'function@laplateforme.io', 'feur', 'a29b9fac1f6a92c19535b4847e8a6f37ed8cdbe24cc2912308acbc6556b4071a24f91e330236be4f4085db4876c6befbc8229f29bc60ba218091b8a49912f9fe', 0);
+(5, 'admin', 'admin', 'admin@laplateforme.io', 'Pas d&#039;adresse', 'c7ad44cbad762a5da0a452f9e854fdc1e0e7a52a38015f23f3eab1d80b931dd472634dfac71cd34ebc35d16ab7fb8a90c81f975113d6c7538dc69dd8de9077ec', 1337),
+(6, 'testedit', 'testedit', 'testedit@laplateforme.io', 'quoi', 'baedb948ac530c7c27fb2d20794f38caca0fc5e2178104aed1a438eccb7177e8218e7e30b7b5f1bc289efa2f2801377e44bb1afe66cd554d747cc67bca40bd81', 42),
+(7, 'Nom', 'Prénom', 'testoraldemo@laplateforme.io', 'rue d&#039;hozier', 'ee26b0dd4af7e749aa1a8ee3c10ae9923f618980772e473f8819a5d4940e0db27ac185f8a0e1d5f84f88bc887fd67b143732c304cc5fa9ad8e6f57f50028a8ff', 42);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
