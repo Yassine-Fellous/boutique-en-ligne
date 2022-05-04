@@ -1,3 +1,4 @@
+<!-- Page par Yassine -->
 <?php
 session_start();
 class Modulco{
@@ -121,12 +122,12 @@ class Modulco{
             }
             else{
                 $_SESSION['fail'] = '<font color="red">les champs doivent être complété !!!</font>';
-                header('Location:../html/profil.php');
+                header('Location:../profil.php');
             }
         }
         else{
             $_SESSION['fail'] = '<font color="red">L\'adresse doit etre differente de l\'ancienne !!!</font>';
-            header('Location:../html/profil.php');
+            header('Location:../profil.php');
         }
     }
 
@@ -147,12 +148,12 @@ class Modulco{
             }
             else{
                 $_SESSION['fail'] = '<font color="red">Le prenom doit etre differente de l\'ancienne !!!</font>';
-                header('Location:../html/profil.php');
+                header('Location:../profil.php');
             }
         }
         else{
             $_SESSION['fail'] = '<font color="red">les champs doivent être complété !!!</font>';
-            header('Location:../html/profil.php');
+            header('Location:../profil.php');
         }
     }
 
@@ -172,12 +173,12 @@ class Modulco{
             }
             else{
                 $_SESSION['fail'] = '<font color="red">L\'email doit etre differente de l\'ancien !!!</font>';
-                header('Location:../html/profil.php');
+                header('Location:../profil.php');
             }
         }
         else{
             $_SESSION['fail'] = '<font color="red">les champs doivent être complété !!!</font>';
-            header('Location:../html/profil.php');
+            header('Location:../profil.php');
         }
     }
 
@@ -199,7 +200,7 @@ class Modulco{
         }
         else{
             $_SESSION['fail'] = '<font color="red">L\'adresse doit etre differente de l\'ancienne !!!</font>';
-            header('Location:../html/profil.php');
+            header('Location:../profil.php');
         }
     }
 
@@ -222,21 +223,21 @@ class Modulco{
                     $insertlogin = $db->prepare("UPDATE user SET password = ? WHERE id = ?");
                     $insertlogin->execute(array($newpassword, $_SESSION['id']));
                     unset($_SESSION['fail']);
-                    header('Location:../html/connexion.php');
+                    header('Location:../connexion.php');
                 }
                 else{
                     $_SESSION['fail'] = '<font color="red">le mot de passe ne doit pas etre identique au précedent !!!</font>';
-                    header('Location:../html/profil.php');
+                    header('Location:../profil.php');
                 }
             }
             else{
                 $_SESSION['fail'] = '<font color="red">les mot de passe ne sont pas identique !!!</font>';
-                header('Location:../html/profil.php');
+                header('Location:../profil.php');
             }
         }
         else{
             $_SESSION['fail'] = '<font color="red">les champs doivent être complété !!!</font>';
-            header('Location:../html/profil.php');
+            header('Location:../profil.php');
         }
     }
 }

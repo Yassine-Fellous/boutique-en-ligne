@@ -3,7 +3,7 @@
 // Fonction pour ajouter des produits.
 function ajouterArticles($nom, $description, $prix, $image)
 {
-    if(require('config.php')) // On appelle la base de données.
+    if(require('config2.php')) // On appelle la base de données.
     {
         echo'Le produit à été ajouté.';
         $request = $db->prepare("INSERT INTO `produit`(`nom`, `description`, `prix`, `img`) VALUES(?, ?, ?, ?)");
@@ -13,7 +13,7 @@ function ajouterArticles($nom, $description, $prix, $image)
 }
 function afficherProduits()
 {
-    if(require('config.php')) // On appelle la base de données.
+    if(require('config2.php')) // On appelle la base de données.
     {
         $request = $db->prepare("SELECT * FROM `produit` ORDER BY id DESC");
         $request->execute();
@@ -25,7 +25,7 @@ function afficherProduits()
 // La fonction pour supprimer des articles
 function supprimerArticles($id)
 {
-    if(require('config.php')) // On appelle la base de données.
+    if(require('config2.php')) // On appelle la base de données.
     {
         $request = $db->prepare("DELETE FROM `produit` WHERE id=?");
         $request->execute(array($id));
