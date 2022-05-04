@@ -21,7 +21,7 @@ $panier = new panier($db);
             <?php endif; ?>
     </ul>
     <?php else: ?> <!-- Lorsque la personne est déconnectée, il verra ces 2 sections dans le header. -->
-        <img class="logo-header" src="images/logo.png">
+        <a href="index.php"><img class="logo-header" src="images/logo.png"/></a>
         <div class="barre-de-recherche">
             <input type="search" placeholder="Recherchez ...">
             <div class="search"></div>

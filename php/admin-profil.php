@@ -1,7 +1,7 @@
 <!-- Page par Jul -->
 <?php // PHP
 session_start(); // Ouverture de session.
-require_once('config.php'); // On appelle la page de fonctions de commandes.
+require_once('config2.php'); // On appelle la page de fonctions de commandes.
 $edit = $db->query('SELECT * FROM `user` WHERE id'); // Je sélectionne les membres.
 if(!isset($_SESSION['id_droit']) AND $_SESSION['id_droit'] !== "1337") // Seul l'admin peut accéder à cette page. ⛔👮
 {
