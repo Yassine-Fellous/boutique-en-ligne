@@ -3,7 +3,7 @@
 require_once('config.php'); // On lie la page config qui contient la class pour se connecter à la base de données.
 require 'class/class-panier.php'; // On lie une page PHP qui contient la class Panier pour son fonctionnement.
 $db = new bdd(); // On appelle la class bdd.
-$panier = new panier(); // On appelle la classe panier.
+$panier = new panier($db); // On appelle la classe panier.
 if(isset($_GET['id']))
 {
     $produits = $db->query('SELECT `id` FROM `produit` WHERE id=:id', array('id' => $_GET['id']));

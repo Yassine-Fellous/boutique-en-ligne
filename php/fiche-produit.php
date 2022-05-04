@@ -19,6 +19,7 @@ $idProduit = $db->query("SELECT * FROM `produit` WHERE id = '$idProduit'"); // J
     <link href="https://fonts.googleapis.com/css2?family=Shippori+Antique+B1&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="../css/boutique.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/style.css"/>
     <title>Fiche du produit - Instagreen Shop</title>
 </head>
 <body>

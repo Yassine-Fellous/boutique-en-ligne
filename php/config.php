@@ -1,5 +1,4 @@
 <?php
-// Page par Jul
 class bdd
 {
     private $host = 'localhost';
@@ -7,6 +6,7 @@ class bdd
     private $password = '';
     private $database = 'boutique_en_ligne';
     private $db;
+    
     public function __construct($host = null, $username = null, $password = null, $database = null)
     {
         if($host != null)
