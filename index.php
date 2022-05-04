@@ -48,7 +48,7 @@
                     <p1 class="produits-text">Nos produits</p1>
                 </div>
                 <?php
-                include ("php/produit.php");
+                include ("php/produits.php");
                 ?>
             </div>
         </article>
