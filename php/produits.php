@@ -1,4 +1,4 @@
-<!-- Page par Sofiane et Jul -->
+
 <?php
 $produits = $db->query('SELECT * FROM `produit` ORDER BY id DESC');
 ?>

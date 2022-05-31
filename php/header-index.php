@@ -1,6 +1,6 @@
 <!-- Page par Jul -->
 <?php
-include('class/class-panier.php');
+require_once('class/class-panier.php');
 require_once('config.php'); // On appelle la BDD
 $db = new bdd();
 $panier = new panier($db);
@@ -9,8 +9,11 @@ $panier = new panier($db);
 <?php if(isset($_SESSION['id'])) : ?> <!-- Lorsque la personne est connectée, il verra ces sections dans le header. -->
     <a href="index.php"><img class="logo-header" src="images/logo.png"/></a>
     <div class="barre-de-recherche">
-        <input type="search" placeholder="Recherchez ...">
-        <div class="search"></div>
+        <form method="GET" action="traitement/trecherche.php">
+            <input type="search" name ="recherche" placeholder="Recherchez ..." id="recherche_produits" onkeyup="javascript:chargementDonnees(this.value)">
+            <span id="resultat-de-recherche"></span>
+            <div class="search"></div>
+        </form>
     </div>
     <ul class="navigation">
         <li><a href="php/panier.php"><img class="logout" title="Panier" src="images/caddie.png" alt="logo"></img></a>
@@ -23,7 +26,8 @@ $panier = new panier($db);
     <?php else: ?> <!-- Lorsque la personne est déconnectée, il verra ces 2 sections dans le header. -->
         <a href="index.php"><img class="logo-header" src="images/logo.png"/></a>
         <div class="barre-de-recherche">
-            <input type="search" placeholder="Recherchez ...">
+        <input type="search" name ="recherche" placeholder="Recherchez ..." id="recherche_produits" onkeyup="javascript:chargementDonnees(this.value)">
+            <span id="resultat-de-recherche"></span>
             <div class="search"></div>
         </div>
         <ul class="navigation">
