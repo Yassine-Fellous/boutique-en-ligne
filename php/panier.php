@@ -1,5 +1,17 @@
 <!-- Page par Jul -->
 <?php
+session_start();
+// Section pour les erreurs (logs)
+error_reporting(-1); // Montre tous les erreurs
+ini_set("display_errors", "1");
+ini_set("log_errors", 1);
+ini_set("error_log", "php-error.log"); // Fichier du log
+// Fin de section
+if(!isset($_SESSION['id']))
+{
+  header('Location:connexion.php');
+  die(); // Inaccesibilité en cas de session absente ou fausse. Redirection vers la page de connexion. ❌
+}
 require_once('config.php'); // On appelle la base de données.
 include('class/class-panier.php');
 $db = new bdd(); // On appelle la class bdd.
@@ -27,7 +39,7 @@ $produits = $db->query('SELECT * FROM `produit` ORDER BY id DESC');
   <body>
     <main>
       <div class="logo-zone">
-        <a href="../index.php"><img class="logo-co" src="../images/logo.png"/></a>
+        <a href="../index.php"><img class="logo-co" alt="Logo Instagreen" src="../images/logo.png"/></a>
       </div>
       <div class="connexion-titre-zone">
         <p1 class="connexion-titre">Votre panier</p1>
@@ -53,89 +65,48 @@ $produits = $db->query('SELECT * FROM `produit` ORDER BY id DESC');
                       }
                       foreach($produits as $produit): // Une boucle est crée pour afficher le nom, image, description et prix des produits via la base de données (mais surtout choisi dans le panier)
                       ?>
-                      <form method="POST" action="panier.php">
-                        <div class="card mb-3">
-                          <div class="card-body">
-                            <div class="d-flex justify-content-between">
-                              <div class="d-flex flex-row align-items-center">
-                                <!-- Image du produit -->
-                                <div>
-                                  <img src="../<?= $produit->img ?>" class="img-fluid rounded-3" alt="Shopping item" style="width: 65px;"/>
-                                </div>
-                                <div class="ms-3">
-                                  <!-- Nom du produit -->
-                                  <h5><?= $produit->nom ?></h5>
-                                  <!-- Description -->
-                                  <p class="small mb-0"><?= substr($produit->description, 0, 40); ?>...</p>
-                                </div>
-                              </div>
-                              <div class="d-flex flex-row align-items-center">
-                                <a href="panier.php?supprimer-produit=<?= $produit->id; ?>"><img class="poubelle-panier" src="../images/trash.png"/></a>
-                                <div style="width: 50px;">
-                                <!-- Quantité -->
-                                <span class="fw-normal mb-0"><input type="text" name="panier[quantity][<?= $produit->id; ?>]" value="<?= $_SESSION['panier'][$produit->id]; ?>"></span>
-                              </div>
-                              <div style="width: 80px;">
-                              <!-- Prix -->
-                              <h5 class="mb-0"><?= number_format($produit->prix,2,',',' '); ?> €</h5>
-                            </div>
-                            <a href="#!" style="color: #cecece;"><i class="fas fa-trash-alt"></i></a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <input class="connexion" type="submit" value="Ajouter la quantité">
-                  </form>
-                  <?php endforeach; ?> <!-- Fin de la boucle -->
-                  <!-- Paiement -->
-                  <div class="col-lg-5">
-                    <div class="card bg-primary text-white rounded-3">
-                      <div class="card-body">
-                        <div class="d-flex justify-content-between align-items-center mb-4">
-                          <h5 class="mb-0">Détails de la carte</h5>
-                        </div>
-                        <p class="small mb-2">Type de cartes acceptés :</p>
-                        <a href="#!" type="submit" class="text-white"><i class="fab fa-cc-mastercard fa-2x me-2"></i></a>
-                        <a href="#!" type="submit" class="text-white"><i class="fab fa-cc-visa fa-2x me-2"></i></a>
-                        <a href="#!" type="submit" class="text-white"><i class="fab fa-cc-amex fa-2x me-2"></i></a>
-                        <a href="#!" type="submit" class="text-white"><i class="fab fa-cc-paypal fa-2x"></i></a>
-                        <form class="mt-4">
-                          <div class="form-outline form-white mb-4">
-                            <input type="text" id="typeName" class="form-control form-control-lg" siez="17" placeholder="Elon Musk" />
-                            <label class="form-label" for="typeName">Nom sur la carte</label>
-                          </div>
-                          <div class="form-outline form-white mb-4">
-                            <input type="text" id="typeText" class="form-control form-control-lg" siez="17" placeholder="1234 5678 9012 3457" minlength="19" maxlength="19" />
-                            <label class="form-label" for="typeText">Numéro de carte bancaire</label>
-                          </div>
-                          <div class="row mb-4">
-                            <div class="col-md-6">
-                              <div class="form-outline form-white">
-                                <input type="text" id="typeExp" class="form-control form-control-lg" placeholder="MM/AA" size="7" id="exp" minlength="7" maxlength="7" />
-                                <label class="form-label" for="typeExp">Expiration</label>
-                              </div>
-                            </div>
-                            <div class="col-md-6">
-                              <div class="form-outline form-white">
-                                <input type="password" id="typeText" class="form-control form-control-lg" placeholder="&#9679;&#9679;&#9679;" size="1" minlength="3" maxlength="3" />
-                                <label class="form-label" for="typeText">CVV</label>
-                              </div>
-                            </div>
-                          </div>
-                        </form>
-                        <hr class="my-4">
-                        <div class="d-flex justify-content-between mb-4">
-                          <p class="mb-2">Total</p>
-                          <p class="mb-2"><?= number_format($panier->prixTotal(),2,',',' '); ?> €</p>
-                        </div>
-                        <button type="button" class="btn btn-info btn-block btn-lg">
+                      <div class="card mb-3">
+                        <div class="card-body">
                           <div class="d-flex justify-content-between">
-                            <span>Payer<i class="fas fa-long-arrow-alt-right"></i></span>
+                            <div class="d-flex flex-row align-items-center">
+                              <!-- Image du produit -->
+                              <div>
+                                <img src="../<?= $produit->img ?>" class="img-fluid rounded-3" alt="Shopping item" style="width: 65px;"/>
+                              </div>
+                              <div class="ms-3">
+                                <!-- Nom du produit -->
+                                <h5><?= $produit->nom ?></h5>
+                                <!-- Description -->
+                                <p class="small mb-0"><?= substr($produit->description, 0, 40); ?>...</p>
+                              </div>
+                            </div>
+                            <div class="d-flex flex-row align-items-center">
+                              <a href="panier.php?supprimer-produit=<?= $produit->id; ?>"><img class="poubelle-panier" src="../images/trash.png"/></a>
+                              <div style="width: 50px;">
+                              <!-- Quantité -->
+                              <span><input type="text" name="panier[quantity][<?= $produit->id; ?>]" value="<?= $_SESSION['panier'][$produit->id]; ?>"></span>
+                            </div>
+                            <div style="width: 80px;">
                           </div>
-                        </button>
+                          <a href="#!" style="color: #cecece;"><i class="fas fa-trash-alt"></i></a>
+                        </div>
                       </div>
                     </div>
                   </div>
+                  <input class="connexion" type="submit" alt="Ajout de la quantité du produit" value="Ajouter la quantité">
+                  <?php endforeach; ?> <!-- Fin de la boucle -->
+                  <hr class="my-4">
+                  <div class="d-flex justify-content-between mb-4">
+                    <p class="mb-2">Total</p>
+                    <form method="POST" action="traitement/paiement.php">
+                      <p class="mb-2" type="text" name="prix" id="prix" alt="Prix indiqué"><?= number_format($panier->prixTotal(),2,',',' '); ?> €</p>
+                    </div>
+                    <button class="btn btn-info btn-block btn-lg">Payer</button>
+                  </form>
+                    <div class="d-flex justify-content-between">
+                      <a href="traitement/paiement.php"><button alt="Boutton pour payer">Procéder au paiement<i class="fas fa-long-arrow-alt-right"></i></button></a>
+                    </div>
+                  </button>
                 </div>
               </div>
             </div>
