@@ -46,10 +46,11 @@ $intention = \Stripe\PaymentIntent::create(['amount' => $prix*100, 'currency' =>
             <div class="d-flex justify-content-between align-items-center mb-4">
               <h5 class="mb-0">Détails de la carte</h5>
             </div>
-            <form method="POST" class="mt-4">
               <div class="form-outline form-white mb-4">
                 <form action="traitement/paiement.php" method="POST">
+                <div id="errors"></div> <!-- Contient les erreurs lors du paiement -->
                   <input type="text" id="cardholder-name" class="form-control form-control-lg" placeholder="Elon Musk" required/>
+                  <h6 class="mb-0">NOTE : Pour passez le paiement, mettez 4242 4242 4242 4242 pour la CB, le reste c'est à vous de choisir.</h6>
                   <label class="form-label" for="cardholder-name">Titulaire de la carte</label>
                 </div>
                 <div id="card-elements"></div> <!-- Formulaire des infos de la carte -->
@@ -59,13 +60,11 @@ $intention = \Stripe\PaymentIntent::create(['amount' => $prix*100, 'currency' =>
                     <p class="mb-2">Total</p>
                     <p class="mb-2"><?= number_format($panier->prixTotal(),2,',',' '); ?> €</p>
                   </div>
-                  <button name="prix" id="prix" class="btn btn-info btn-block btn-lg">
                     <div class="d-flex justify-content-between">
-                      <button id="card-button" type="button" data-secret="<?= $intention['client_secret'] ?>">Payez</button><span>Payer<i class="fas fa-long-arrow-alt-right"></i></span>
+                      <button class="btn btn-info btn-block btn-lg" id="card-button" type="button" data-secret="<?= $intention['client_secret'] ?>">Payez</button>
                     </div>
                   </button>
                 </form>
-              </form>
             </div>
           </div>
         </div>
