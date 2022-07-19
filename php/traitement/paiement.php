@@ -24,7 +24,7 @@ if($prix <=0)
   header("../erreur-paiement.php");
 }
 // Instance Stripe
-\Stripe\Stripe::setApiKey('sk_test_51KUAgRJcdqGu57WBKfKR5bC4PWbrSqCdFhOz82WDlBSpBaQedtbOcipbzIMunm122C0gwuX1psXLIF9TiFa1PQYP00vRA06fQA'); // Clé secrète
+\Stripe\Stripe::setApiKey('// Clé secrète à insérer'); // Clé secrète
 $intention = \Stripe\PaymentIntent::create(['amount' => $prix*100, 'currency' => 'eur']);
 ?>
 <!DOCTYPE html>
