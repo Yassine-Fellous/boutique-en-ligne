@@ -1,7 +1,7 @@
 <!-- Page par Jul -->
 <?php
 session_start();
-require_once('config.php'); // On appelle la page de fonctions de commandes.
+$db = new PDO('mysql:host=localhost;dbname=boutique_en_ligne;charset=utf8', 'root', ''); // Je me connecte à phpMyAdmin en appelant ma BDD 'livreor'.
 if(!isset($_SESSION['id_droit']) AND $_SESSION['id_droit'] !== "1337") // Seul l'admin peut accéder à cette page. ⛔👮
 {
   header('Location: ../index.php'); // Redirection à l'accueil si la personnes n'est pas admin ou non connectée.
