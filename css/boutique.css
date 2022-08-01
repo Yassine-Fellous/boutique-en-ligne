@@ -88,6 +88,7 @@
         display: flex;
         justify-content: center;
     }
+    /* Menu burger 🍔 */
     #menu__toggle
     {
         opacity: 0;
@@ -574,9 +575,13 @@ label
 {
     margin-top: 10%;
 }
-.coche
+/* Version mobile */
+@media all and (max-width: 650px)
 {
-    font-family: 'Shippori Antique B1', sans-serif;
+    .module-co-zone
+    {
+        width: 50%;
+    }
 }
 /* Le footer */
 footer
@@ -618,6 +623,23 @@ footer
     display: flex;
     justify-content: center;
     margin-top: 5%;
+}
+/* Version mobile */
+@media all and (max-width: 650px)
+{
+    .footer-logo
+    {
+        width: 90%;
+    }
+    .footer-text
+    {
+        font-size: 75%;
+    }
+    footer
+    {
+        margin-top: 35%;
+        min-height: calc(30vh - 10px - 10px);
+    }
 }
 /* Fin du footer */
 /* Grille d'utilisateurs du panel admin */
