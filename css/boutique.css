@@ -812,3 +812,28 @@ footer
     display: flex;
     justify-content: space-between;
 }
+.paiement-titre-zone
+{
+    margin-top: 2%;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+.paiement-titre
+{
+    font-family: 'Shippori Antique B1', sans-serif;
+    font-size: 35px;
+    color: white;
+}
+/* Version mobile */
+@media all and (max-width: 650px)
+{
+    .paiement-titre
+    {
+        font-size: 20px;
+    }
+    .cart
+    {
+        flex-direction: column;
+    }
+}
