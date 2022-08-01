@@ -574,6 +574,10 @@ label
 {
     margin-top: 10%;
 }
+.coche
+{
+    font-family: 'Shippori Antique B1', sans-serif;
+}
 /* Le footer */
 footer
 {
@@ -749,10 +753,15 @@ footer
 {
     margin-top: 3%;
 }
+.centrer-image
+{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
 .image-produit
 {
-    height: 15%;
-    width: 15%;
+    width: 20%;
 }
 @import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100&display=swap');
 .description-produit, .prix-fiche-produit, .nom-fiche-produit
@@ -760,11 +769,24 @@ footer
     font-family: 'League Spartan', sans-serif;
     font-size: 25px;
     text-align: center;
+    color: white;
 }
 .fiche-produit-zone
 {
     display: flex;
-    background-color: #00DDEB;
     justify-content: center;
     width: 100%;
+}
+/* Page de paiement */
+.paiement-et-coordo
+{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.cart
+{
+    display: flex;
+    justify-content: space-between;
 }
